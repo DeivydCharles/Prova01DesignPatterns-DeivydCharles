@@ -1,6 +1,4 @@
-# Design Patterns Examples
-
-Examples about some design patterns
+# Design Patterns 
 
 Criacionais:
 
