@@ -1,12 +1,12 @@
 class Button {
   render() {
-    throw new Error("Método render() precisa ser implementado.");
+    throw new Error("Método render() deve ser implementado.");
   }
 }
 
 class WindowUI {
   render() {
-    throw new Error("Método render() precisa ser implementado.");
+    throw new Error("Método render() deve ser implementado.");
   }
 }
 
@@ -36,15 +36,15 @@ class DarkWindow extends WindowUI {
 
 class UIFactory {
   createButton() {
-    throw new Error("Método createButton() precisa ser implementado.");
+    throw new Error("Método createButton() deve ser implementado.");
   }
 
   createWindow() {
-    throw new Error("Método createWindow() precisa ser implementado.");
+    throw new Error("Método createWindow() deve ser implementado.");
   }
 }
 
-class LightThemeFactory extends UIFactory {
+class LightUIFactory extends UIFactory {
   createButton() {
     return new LightButton();
   }
@@ -54,7 +54,7 @@ class LightThemeFactory extends UIFactory {
   }
 }
 
-class DarkThemeFactory extends UIFactory {
+class DarkUIFactory extends UIFactory {
   createButton() {
     return new DarkButton();
   }
@@ -64,7 +64,7 @@ class DarkThemeFactory extends UIFactory {
   }
 }
 
-function createUI(factory) {
+function renderUI(factory) {
   const button = factory.createButton();
   const windowUI = factory.createWindow();
 
@@ -76,9 +76,9 @@ const theme = "dark";
 let factory;
 
 if (theme === "light") {
-  factory = new LightThemeFactory();
+  factory = new LightUIFactory();
 } else {
-  factory = new DarkThemeFactory();
+  factory = new DarkUIFactory();
 }
 
-createUI(factory);
+renderUI(factory);
